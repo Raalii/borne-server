@@ -23,7 +23,7 @@ const server = http.createServer(app);
 // Configuration CORS pour Socket.io
 const io = new SocketServer(server, {
   cors: {
-    origin: process.env.CLIENT_URL || "http://localhost:3000",
+    origin: "*",
     methods: ["GET", "POST"],
     credentials: true,
   },
@@ -32,7 +32,7 @@ const io = new SocketServer(server, {
 // Middleware CORS pour Express
 app.use(
   cors({
-    origin: process.env.CLIENT_URL || "http://localhost:3000",
+    origin: "*",
     credentials: true,
   })
 );
